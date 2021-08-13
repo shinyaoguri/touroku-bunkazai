@@ -1,6 +1,5 @@
 # encoding: utf-8
 
-
 # CSVのヘッダ
 # [0]"台帳ID"
 # [1]"管理対象ID"
