@@ -150,3 +150,27 @@ latest_formatted.csv
 
 latext_fillup.csv
 - Webページで公開されている情報をクローラで取得して追加したcsv
+
+## 最新の情報へのアップデート方法
+
+### 1. オリジナルデータのダウンロード
+国指定文化財等データベースから登録有形文化財(建造物)のCSVデータをダウンロード
+`data/latest_original.csv`として保存
+
+### 2. データの整形
+`format-csv.py`で`latest_original.csv`から`latest_formatted.csv`を生成
+実行時引数でオリジナルのCSVデータ(`latest_original.csv`)を指定する必要がある
+
+`$ pipenv run python script/format-csv.py data/latest_original.csv`
+
+### 3. データの補完
+`fillup-csv.py`を使って国指定文化財等データベースのWeb上にしかない情報をダウンロードして情報を補完したCSVデータ(`latest_fillup.csv`)を生成する．
+実行時引数で整形されたデータ(`latest_formatted.csv`)を指定する必要がある
+かなり時間がかかる
+
+`$ pipenv run python script/fillup-csv.py data/latest_formatted.csv`
+
+### 4. JSONファイルの生成
+`build-api.py`を使って`latest_fillup.csv`からJSONファイルを生成する
+
+`$ pipenv run python script/build-api.py data/latest_fillup.csv`
