@@ -54,6 +54,16 @@ def main():
   prefecture_count = len(prefectures_list)
   for pref_index,prefecture in enumerate(prefectures_list):
     print('['+str(pref_index+1)+'/'+str(prefecture_count)+'] ' + prefecture)
+    with open('api/'+prefecture+'.csv', 'wt') as pref_csv:
+      with open(file_path, encoding='utf-8-sig') as in_f:
+        reader = csv.reader(in_f)
+        writer = csv.writer(pref_csv)
+        header = next(reader)
+        writer.writerow(header)
+        for row in reader:
+          if row[24] == prefecture:
+            writer.writerow(row)
+
     with open('api/'+prefecture+'.json', 'wt') as pref_json:
       pref_data = list()
       with open(file_path, encoding='utf-8-sig') as in_f:
@@ -72,6 +82,16 @@ def main():
             pref_data.append(row_data)
       json.dump(pref_data, pref_json, ensure_ascii=False, indent=2)
   
+  with open('api/その他.csv', 'wt') as other_csv:
+    with open(file_path, encoding='utf-8-sig') as in_f:
+      reader = csv.reader(in_f)
+      writer = csv.writer(other_csv)
+      header = next(reader)
+      writer.writerow(header)
+      for row in reader:
+        if not row[24] in prefectures_list:
+          writer.writerow(row)
+
   with open('api/その他.json', 'wt') as other_json:
     other_data = list()
     with open(file_path, encoding='utf-8-sig') as in_f:
@@ -79,8 +99,6 @@ def main():
       header = next(reader)
       for row in reader:
         if not row[24] in prefectures_list:
-          print(row)
-          time.sleep(3)
           row_data = dict()
           row_data['管理対象ID'] = row[1]
           row_data['名称'] = row[2]
