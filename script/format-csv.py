@@ -11,7 +11,7 @@ def main():
   file_path = args[1]
   file_name = os.path.splitext(os.path.basename(file_path))[0]
   tmp_file_path = 'data/'+file_name+'_tmp.csv'
-  sorted_file_path = 'data/latest_formatted_'+(datetime.datetime.now()).strftime('%H%M%S')+'.csv'
+  sorted_file_path = 'data/latest_formatted.csv'
 
   # 空行と不正な改行を削除
   with open(file_path) as in_f:
@@ -20,11 +20,11 @@ def main():
         if not (line == '\n'):#空行ではない
           if not line[-2] == "\"":
             out_f.writelines(line.rstrip('\n'))
-            print('[ ' + str(index+1) + '行目] 不正な改行を削除')
+            print('[ ' + str(index+1) + '行目 ] 不正な改行を削除')
           else:
             out_f.writelines(line)
         else:
-          print('[' + str(index+1) + '行目] 空行を削除')
+          print('[ ' + str(index+1) + '行目 ] 空行を削除')
 
   # 管理対象IDでソート
   with open(tmp_file_path, encoding='utf-8-sig') as in_f:
