@@ -26,12 +26,12 @@ import os
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import datetime
+import chromedriver_binary
 
 def main():
   args = sys.argv
   file_path = args[1]
   file_name = os.path.splitext(os.path.basename(file_path))[0]
-
 
   options = webdriver.ChromeOptions()
   options.add_argument('--headless')
