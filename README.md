@@ -153,6 +153,10 @@ latext_fillup.csv
 
 ## 最新の情報へのアップデート方法
 
+### 0. 環境構築
+1. pipenvをインストール
+2. `pipenv install`する
+
 ### 1. オリジナルデータのダウンロード
 国指定文化財等データベースから登録有形文化財(建造物)のCSVデータをダウンロード
 `data/latest_original.csv`として保存
