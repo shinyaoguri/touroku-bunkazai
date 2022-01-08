@@ -138,6 +138,18 @@ https://shinyaoguri.github.io/touroku-bunkazai/api/id/00000050.json
 }
 ```
 
+### 差分情報
+
+update.jsonに記録
+
+- 全てのファイル名と最終更新日のリストを持つ
+何が削除されたのかはデータを持つ側が責任をもつ
+ここに載ってない文化財は存在しない文化財ですよ
+
+crossout.json
+登録抹消された文化財のID一覧
+
+
 ## dataフォルダのcsvファイル
 latest_original.csv
 - 国指定文化財等データベースからダウンロードしたままのcsv

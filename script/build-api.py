@@ -51,6 +51,8 @@ def main():
   args = sys.argv
   file_path = args[1]
 
+  # /apiディレクトリを /api_oldにrenameする
+
   prefecture_count = len(prefectures_list)
   for pref_index,prefecture in enumerate(prefectures_list):
     print('['+str(pref_index+1)+'/'+str(prefecture_count)+'] ' + prefecture)
