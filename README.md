@@ -192,3 +192,6 @@ latext_fillup.csv
 `build-api.py`を使って`latest_fillup.csv`からJSONファイルを生成する．
 
 `$ pipenv run python script/build-api.py data/latest_fillup.csv`
+
+## ChromeDriverのバージョンアップによるエラー対策
+
