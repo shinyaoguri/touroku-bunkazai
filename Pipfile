@@ -7,7 +7,7 @@ name = "pypi"
 selenium = "*"
 beautifulsoup4 = "*"
 html5lib = "*"
-chromedriver-binary = "==101.0.4951.41.0"
+chromedriver-binary = "==103.0.5060.53"
 
 [dev-packages]
 
