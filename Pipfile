@@ -12,4 +12,4 @@ chromedriver-binary = "==103.0.5060.53"
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
